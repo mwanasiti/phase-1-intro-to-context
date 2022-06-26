@@ -52,7 +52,7 @@ let hoursWorkedOnDate = function(employee, soughtDate){
     return (outEvent.hour - inEvent.hour) / 100
 }
 
-let wageEarned = function(employee, dateSought){
+let wagesEarnedOnDate = function(employee, dateSought){
     let rawWage = hoursWorkedOnDate(employee, dateSought)
         * employee.payPerHour
     return parseFloat(rawWage.toString())
@@ -64,7 +64,7 @@ let allWagesFor = function(employee){
     })
 
     let payable = eligibleDates.reduce(function(memo, d){
-        return memo + wageEarned(employee, d)
+        return memo + wagesEarnedOnDate(employee, d)
     }, 0)
 
     return payable
